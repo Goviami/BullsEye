@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.authentication.UserCredentials;
+import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -28,6 +31,10 @@ public class MongoDataaccessConfig extends AbstractMongoConfiguration {
 	private String dbName;
 	@Value("${bullseye.dartmsg.mongodb.user.avatar.bucket}")
 	private String avatarBucket;
+	@Value("${bullseye.dartmsg.mongodb.username}")
+	private String userName;
+	@Value("${bullseye.dartmsg.mongodb.password}")
+	private String password;
 
 	/**
 	 * Get Mongo Database Name.
@@ -37,6 +44,14 @@ public class MongoDataaccessConfig extends AbstractMongoConfiguration {
 	@Override
 	protected String getDatabaseName() {
 		return dbName;
+	}
+
+	@Override
+	@Bean
+	public MongoDbFactory mongoDbFactory() throws Exception {
+		UserCredentials userCredentials = new UserCredentials(userName, password);
+		SimpleMongoDbFactory dbFactory = new SimpleMongoDbFactory(mongo(), getDatabaseName(), userCredentials);
+		return dbFactory;
 	}
 
 	/**
@@ -72,7 +87,7 @@ public class MongoDataaccessConfig extends AbstractMongoConfiguration {
 	 */
 	@Bean
 	public MongoTemplate mongoTemplate() throws Exception {
-		return new MongoTemplate(mongo(), dbName);
+		return new MongoTemplate(mongoDbFactory());
 	}
 
 }
