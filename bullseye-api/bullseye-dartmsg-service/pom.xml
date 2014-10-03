@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.goviami.dartmessage</groupId>
+		<artifactId>bullseye-dartmsg-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>bullseye-dartmsg-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>BullsEye Dart Messaging Business Service</name>
+	<description>BullsEye Dart Messaging Business Service Module</description>
+	<organization>
+		<name>Goviami, Inc.</name>
+		<url>http://www.goviami.com</url>
+	</organization>
+	
+	<properties>
+		<bullseye.dartmsg.model.version>0.0.1-SNAPSHOT</bullseye.dartmsg.model.version>
+		<bullseye.dartmsg.common.version>0.0.1-SNAPSHOT</bullseye.dartmsg.common.version>
+		<bullseye.dartmsg.dataaccess.version>0.0.1-SNAPSHOT</bullseye.dartmsg.dataaccess.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.libphonenumber</groupId>
+			<artifactId>libphonenumber</artifactId>
+			<version>6.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.goviami.dartmessage</groupId>
+			<artifactId>bullseye-dartmsg-model</artifactId>
+			<version>${bullseye.dartmsg.model.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.goviami.dartmessage</groupId>
+			<artifactId>bullseye-dartmsg-dataaccess</artifactId>
+			<version>${bullseye.dartmsg.dataaccess.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.goviami.dartmessage</groupId>
+			<artifactId>bullseye-dartmsg-common</artifactId>
+			<version>${bullseye.dartmsg.common.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
