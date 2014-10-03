@@ -33,10 +33,10 @@
 
 	<!-- Add all the sub modules here -->
 	<modules>
-		<module>../bullseye-dartmsg-common</module>
-		<module>../bullseye-dartmsg-model</module>
-		<module>../bullseye-dartmsg-dataaccess</module>
-		<module>../bullseye-dartmsg-service</module>
-		<module>../bullseye-dartmsg-web</module>
+		<module>bullseye-dartmsg-common</module>
+		<module>bullseye-dartmsg-model</module>
+		<module>bullseye-dartmsg-dataaccess</module>
+		<module>bullseye-dartmsg-service</module>
+		<module>bullseye-dartmsg-web</module>
 	</modules>
 </project>
