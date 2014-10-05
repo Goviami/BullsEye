@@ -3,7 +3,6 @@ package com.goviami.dartmsg.dataaccess.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.authentication.UserCredentials;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
@@ -16,7 +15,6 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.WriteConcern;
 
-@Import(DataaccessSpringConfig.class)
 @Configuration
 @EnableMongoRepositories(basePackages = { "com.goviami.dartmsg.dataaccess.repository" })
 public class MongoDataaccessConfig extends AbstractMongoConfiguration {

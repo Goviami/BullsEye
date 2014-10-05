@@ -5,8 +5,6 @@ import java.util.Set;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.converter.Converter;
 
@@ -15,8 +13,7 @@ import com.goviami.dartmsg.service.converter.db.UserDetailsToUserDetailsDOConver
 import com.goviami.dartmsg.service.converter.db.UserRegistryToUserDOConverter;
 
 @Configuration
-@PropertySources(value = { @PropertySource("classpath:error-message.properties") })
-public class ServiceSpringConfig {
+public class ServiceModuleSpringConfig {
 	/**
 	 * Register Converters for Conversion Service.
 	 * 

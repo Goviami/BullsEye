@@ -7,11 +7,14 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 import com.goviami.dartmsg.service.config.ServiceAppBoot;
 
 @Configuration
 @EnableAutoConfiguration
+@PropertySources(value = { @PropertySource("classpath:swagger-${app.env}.properties") })
 @ComponentScan(basePackages = { "com.goviami.dartmsg.web", "com.goviami.dartmsg.common" })
 @Import(value = { ServiceAppBoot.class })
 public class WebAppBoot extends SpringBootServletInitializer {

@@ -1,16 +1,11 @@
 package com.goviami.dartmsg.web.handler;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.dao.DataAccessException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.goviami.dartmsg.common.exception.ApiBusniessException;
 import com.goviami.dartmsg.common.exception.DuplicateEntityException;
@@ -19,22 +14,11 @@ import com.goviami.dartmsg.common.exception.RequestValidationException;
 import com.goviami.dartmsg.common.exception.UnauthorizedException;
 import com.goviami.dartmsg.common.exception.UnprocessableEntityException;
 import com.goviami.dartmsg.common.model.ErrorResponse;
-import com.goviami.dartmsg.common.util.ErrorResponseUtil;
 import com.goviami.dartmsg.service.util.ErrorConstants;
 import com.mongodb.MongoTimeoutException;
 
 @ControllerAdvice
-public class AppExceptionHandler extends ResponseEntityExceptionHandler {
-	/**
-	 * Loads all properties.
-	 */
-	@Autowired
-	private Environment environment;
-	/**
-	 * ErrorResponse Utility Instance
-	 */
-	@Autowired
-	private ErrorResponseUtil errorResponseUtil;
+public class AppExceptionHandler extends CustomeResponseEntityExceptionHandler {
 
 	/**
 	 * Handle Mongo Database Timeout Exceptions
@@ -64,22 +48,6 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResponse response = new ErrorResponse();
 		response.setErrorId(ErrorConstants.DATA_ACCESS_EXCEPTION);
 		response.setErrorText(environment.getProperty(String.valueOf(ErrorConstants.DATA_ACCESS_EXCEPTION)));
-		response.setDeveloperText(ex.getMessage());
-		return handleExceptionInternal(ex, response, getHeader(), HttpStatus.INTERNAL_SERVER_ERROR, request);
-	}
-
-	/**
-	 * Handle Mongo General Exceptions
-	 * 
-	 * @param ex {@link RuntimeException}
-	 * @param request {@link WebRequest}
-	 * @return {@link ResponseEntity}
-	 */
-	@ExceptionHandler({ Exception.class })
-	protected ResponseEntity<Object> handleDefaultExceptions(RuntimeException ex, WebRequest request) {
-		ErrorResponse response = new ErrorResponse();
-		response.setErrorId(ErrorConstants.DEFAULT_EXCEPTION);
-		response.setErrorText(environment.getProperty(String.valueOf(ErrorConstants.DEFAULT_EXCEPTION)));
 		response.setDeveloperText(ex.getMessage());
 		return handleExceptionInternal(ex, response, getHeader(), HttpStatus.INTERNAL_SERVER_ERROR, request);
 	}
@@ -168,14 +136,4 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(ex, response, getHeader(), HttpStatus.CONFLICT, request);
 	}
 
-	/**
-	 * Constructs JSON Header object.
-	 * 
-	 * @return {@link HttpHeaders}
-	 */
-	private HttpHeaders getHeader() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		return headers;
-	}
 }

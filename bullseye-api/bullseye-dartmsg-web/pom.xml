@@ -16,6 +16,7 @@
 		<url>http://www.goviami.com</url>
 	</organization>
 
+
 	<properties>
 		<bullseye.dartmsg.model.version>0.0.1-SNAPSHOT</bullseye.dartmsg.model.version>
 		<bullseye.dartmsg.service.version>0.0.1-SNAPSHOT</bullseye.dartmsg.service.version>
@@ -36,6 +37,11 @@
 			<groupId>com.googlecode.libphonenumber</groupId>
 			<artifactId>libphonenumber</artifactId>
 			<version>6.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<version>0.8.8</version>
 		</dependency>
 		<dependency>
 			<groupId>com.goviami.dartmessage</groupId>
