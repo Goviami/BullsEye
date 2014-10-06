@@ -19,7 +19,7 @@ public class UserDetails implements Serializable {
 	/**
 	 * User status
 	 */
-	private String status;
+	private String mood;
 	/**
 	 * Avatar Object
 	 */
@@ -40,17 +40,17 @@ public class UserDetails implements Serializable {
 	}
 
 	/**
-	 * @return the status
+	 * @return the mood
 	 */
-	public String getStatus() {
-		return status;
+	public String getMood() {
+		return mood;
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param mood the mood to set
 	 */
-	public void setStatus(final String status) {
-		this.status = status;
+	public void setMood(String mood) {
+		this.mood = mood;
 	}
 
 	/**

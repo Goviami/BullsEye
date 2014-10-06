@@ -14,7 +14,7 @@ public final class UserDOToUserConverter implements Converter<UserDO, User> {
 		user.setCountry(userDO.getCountry());
 		user.setPhone(userDO.getPhone());
 		user.setEmail(userDO.getEmail());
-		user.setStatus(userDO.getStatus());
+		user.setMood(userDO.getMood());
 		user.setNickName(userDO.getNickName());		
 		user.setCreatedTs(userDO.getCreatedTs());
 		user.setUpdatedTs(userDO.getUpdatedTs());

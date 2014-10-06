@@ -4,7 +4,6 @@ import java.util.Locale;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.validator.routines.EmailValidator;
 
 import com.goviami.dartmsg.common.exception.RequestValidationException;
 import com.goviami.dartmsg.model.UserDetails;
@@ -28,12 +27,6 @@ public final class UserValidator {
 		if (StringUtils.isBlank(userRegister.getPhone())) {
 			throw new RequestValidationException(ServiceUtil.reqValidationError(ErrorConstants.PHONE_NUMBER));
 		}
-		if (StringUtils.isBlank(userRegister.getEmail())) {
-			throw new RequestValidationException(ServiceUtil.reqValidationError(ErrorConstants.EMAIL_ADDRESS));
-		}
-		if (!EmailValidator.getInstance().isValid(userRegister.getEmail())) {
-			throw new RequestValidationException(ServiceUtil.reqValidationError(ErrorConstants.EMAIL_ADDRESS));
-		}
 	}
 
 	/**
@@ -42,7 +35,7 @@ public final class UserValidator {
 	 * @param userDetails {@link UserDetails}
 	 */
 	public static void validateUserDetails(final UserDetails userDetails) {
-		if (userDetails.getNickName() == null && userDetails.getStatus() == null
+		if (userDetails.getNickName() == null && userDetails.getMood() == null
 				&& (userDetails.getAvatar() == null || userDetails.getAvatar().getImgBytes() == null)) {
 			throw new RequestValidationException(ServiceUtil.reqValidationError(ErrorConstants.INVALID_REQUEST));
 		}

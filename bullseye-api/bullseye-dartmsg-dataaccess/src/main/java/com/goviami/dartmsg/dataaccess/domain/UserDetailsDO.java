@@ -19,7 +19,7 @@ public class UserDetailsDO extends AuditDO {
 	/**
 	 * User Status.
 	 */
-	private String status;
+	private String mood;
 	/**
 	 * Avatar image reference Id.
 	 */
@@ -40,17 +40,17 @@ public class UserDetailsDO extends AuditDO {
 	}
 
 	/**
-	 * @return the status
+	 * @return the mood
 	 */
-	public String getStatus() {
-		return status;
+	public String getMood() {
+		return mood;
 	}
 
 	/**
-	 * @param status the status to set
+	 * @param mood the mood to set
 	 */
-	public void setStatus(final String status) {
-		this.status = status;
+	public void setMood(String mood) {
+		this.mood = mood;
 	}
 
 	/**

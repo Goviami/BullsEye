@@ -58,8 +58,8 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 		if (detailsDO.getNickName() != null) {
 			update.set("nickName", detailsDO.getNickName());
 		}
-		if (detailsDO.getStatus() != null) {
-			update.set("status", detailsDO.getStatus());
+		if (detailsDO.getMood() != null) {
+			update.set("mood", detailsDO.getMood());
 		}
 		if (detailsDO.getAvatarId() != null) {
 			update.set("avatarId", detailsDO.getAvatarId());

@@ -20,47 +20,35 @@ public class UserRegister implements Serializable {
 	 * User Phone Number.
 	 */
 	private String phone;
-	/**
-	 * User Email Address
-	 */
-	private String email;
+
 	/**
 	 * @return the country
 	 */
 	public String getCountry() {
 		return country;
 	}
+
 	/**
 	 * @param country the country to set
 	 */
 	public void setCountry(final String country) {
 		this.country = country;
 	}
+
 	/**
 	 * @return the phone
 	 */
 	public String getPhone() {
 		return phone;
 	}
+
 	/**
 	 * @param phone the phone to set
 	 */
 	public void setPhone(final String phone) {
 		this.phone = phone;
 	}
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(final String email) {
-		this.email = email;
-	}
-	
+
 	@Override
 	public boolean equals(final Object obj) {
 		return EqualsBuilder.reflectionEquals(this, obj);
@@ -75,5 +63,5 @@ public class UserRegister implements Serializable {
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this);
 	}
-	
+
 }

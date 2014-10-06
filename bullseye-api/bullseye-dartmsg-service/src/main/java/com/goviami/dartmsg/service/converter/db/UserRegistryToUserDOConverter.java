@@ -12,7 +12,6 @@ public class UserRegistryToUserDOConverter implements Converter<UserRegister, Us
 		final UserDO userDO = new UserDO();
 		userDO.setCountry(userRegister.getCountry());
 		userDO.setPhone(userRegister.getPhone());
-		userDO.setEmail(userRegister.getEmail());
 		return userDO;
 	}
 

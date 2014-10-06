@@ -1,6 +1,5 @@
 package com.goviami.dartmsg.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -8,7 +7,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class User implements Serializable {
+public class User extends UserDetails {
 	/**
 	 * Default serialVersionUID.
 	 */
@@ -29,18 +28,6 @@ public class User implements Serializable {
 	 * User Email Address.
 	 */
 	private String email;
-	/**
-	 * User Nick Name.
-	 */
-	private String nickName;
-	/**
-	 * User Status.
-	 */
-	private String status;
-	/**
-	 * User Avatar Image.
-	 */
-	private Avatar avatar;
 	/**
 	 * User account created date.
 	 */
@@ -104,48 +91,6 @@ public class User implements Serializable {
 	 */
 	public void setEmail(final String email) {
 		this.email = email;
-	}
-
-	/**
-	 * @return the nickName
-	 */
-	public String getNickName() {
-		return nickName;
-	}
-
-	/**
-	 * @param nickName the nickName to set
-	 */
-	public void setNickName(final String nickName) {
-		this.nickName = nickName;
-	}
-
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(final String status) {
-		this.status = status;
-	}
-
-	/**
-	 * @return the avatar
-	 */
-	public Avatar getAvatar() {
-		return avatar;
-	}
-
-	/**
-	 * @param avatar the avatar to set
-	 */
-	public void setAvatar(final Avatar avatar) {
-		this.avatar = avatar;
 	}
 
 	/**
